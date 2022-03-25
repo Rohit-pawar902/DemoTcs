@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3A35C"
+    tools:context=".Home">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="308dp"
+        android:layout_height="590dp"
+        android:background="@drawable/ic_icons8_spider_man_new"
+        android:backgroundTint="@color/colorAccent"
+        android:backgroundTintMode="screen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnsubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="156dp"
+            android:fontFamily="cursive"
+            android:text="Submit"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/ETpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:text="Enter Password"
+            app:layout_constraintBottom_toTopOf="@+id/ETaddress"
+            app:layout_constraintEnd_toEndOf="@id/ETmobile"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/ETmobile"
+            app:layout_constraintTop_toBottomOf="@+id/ETmobile" />
+
+        <EditText
+            android:id="@+id/ETemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:text="Enter Email ID "
+            app:layout_constraintBottom_toTopOf="@+id/ETmobile"
+            app:layout_constraintEnd_toEndOf="@id/ETname"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/ETname"
+            app:layout_constraintTop_toBottomOf="@+id/ETname" />
+
+        <EditText
+            android:id="@+id/ETaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:minHeight="48dp"
+            android:text="Enter Address"
+            app:layout_constraintBottom_toTopOf="@+id/btnsubmit"
+            app:layout_constraintEnd_toEndOf="@id/ETpassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/ETpassword"
+            app:layout_constraintTop_toBottomOf="@+id/ETpassword" />
+
+        <EditText
+            android:id="@+id/ETmobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Enter Mobile"
+            app:layout_constraintBottom_toTopOf="@+id/ETpassword"
+            app:layout_constraintEnd_toEndOf="@id/ETemail"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/ETemail"
+            app:layout_constraintTop_toBottomOf="@+id/ETemail" />
+
+        <EditText
+            android:id="@+id/ETname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Enter User Name"
+            app:layout_constraintBottom_toTopOf="@+id/ETemail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVheading" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="136dp"
+            android:layout_height="134dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="cursive"
+            android:text="hello"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnsubmit" />
+
+        <TextView
+            android:id="@+id/TVheading"
+            android:layout_width="332dp"
+            android:layout_height="47dp"
+            android:fontFamily="cursive"
+            android:text="Registration Page"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.038" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

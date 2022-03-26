@@ -15,31 +15,64 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
-        val name = findViewById<TextView>(R.id.ETname)
-        val email = findViewById<TextView>(R.id.ETemail )
-        val add = findViewById<TextView>(R.id.ETaddress )
-        val mob = findViewById<TextView>(R.id.ETmobile )
-        val pass = findViewById<TextView>(R.id.ETpassword )
-        val p= Person("1",name.text.toString(),email.text.toString(),mob.text.toString(),pass.text.toString(),"male")
-//        val databaseDriverFactory:DatabaseDriverFactory= DatabaseDriverFactory(this)
-//        var database = Database(databaseDriverFactory)
-//      database.clearDatabase()
-//       val p= Person("1",name.text.toString(),email.text.toString(),mob.text.toString(),pass.text.toString(),"male")
-//        database.insertPerson(p);
-//
-//        var li:List<Person>  = database.getAllPersons()
-//
-//
-//       val tv= findViewById<TextView>(R.id.tv2)
-//        tv.text=li.toString();
-
         val submit = findViewById<Button>(R.id.btnsubmit )
-        submit.setOnClickListener {
-            val intent= Intent(this@Home ,ShowRegisteredDataActivity::class.java)
-            intent.putExtra("data",p.toString())
-            startActivity(intent)
-            finish()
+
+        try {
+            submit.setOnClickListener {
+                val name = findViewById<TextView>(R.id.ETname)
+                val email = findViewById<TextView>(R.id.ETemail)
+                val add = findViewById<TextView>(R.id.ETaddress)
+                val mob = findViewById<TextView>(R.id.ETmobile)
+                val pass = findViewById<TextView>(R.id.ETpassword)
+                //name must have 5 Characters
+                var isAllGood :Boolean=true;
+                if(name.text.toString().length<5){
+                    name.setError("too short name")
+                    isAllGood=false;
+                }
+                //mobile validation
+                if(mob.text.toString().length>10 || mob.text.toString().length<10){
+                    mob.setError("not a valid phone number")
+                    isAllGood=false;
+
+                }
+                else if(mob.text.toString().toLongOrNull()==null){
+                    mob.setError("not a valid phone number")
+                    isAllGood=false;
+
+                }
+
+                //Email validation
+                if(email.text.toString().length<10){
+                    email.setError("Email id is invalid")
+                    isAllGood=false;
+                }
+
+               //password
+               if(pass.text.toString().length<8){
+                   pass.setError("Password is too short")
+                   isAllGood=false;
+               }
+
+               if(isAllGood) {
+                   val p = Person(
+                       "5",
+                       name.text.toString(),
+                       email.text.toString(),
+                       mob.text.toString(),
+                       pass.text.toString(),
+                       add.text.toString()
+                   )
+
+                   val intent = Intent(this@Home, ShowRegisteredDataActivity::class.java)
+                   intent.putExtra("data", p.toString())
+                   startActivity(intent)
+                   finish()
+               }
+            }
+        }
+        catch (e: Exception){
+            print(e.stackTrace)
         }
 
     }

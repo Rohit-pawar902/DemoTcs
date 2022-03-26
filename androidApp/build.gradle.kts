@@ -20,8 +20,11 @@ android {
             isMinifyEnabled = false
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
-
+val lifecycleVersion = "2.0.0"
 dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.4.0")
@@ -35,6 +38,17 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.cardview:cardview:1.0.0")
 
+    // LiveData and ViewModel
+
+
+
+        // ViewModel and LiveData
+        implementation ("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+
+        // alternatively - just ViewModel
+        implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+
+    implementation("com.google.code.gson:gson:2.8.7")
 
     implementation(project(":shared"))
 }

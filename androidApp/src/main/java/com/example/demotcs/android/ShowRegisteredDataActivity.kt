@@ -13,30 +13,40 @@ class ShowRegisteredDataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_registered_data)
-        val intent=intent
-
-        val data=intent.getStringExtra("data")
-        Log.d("main",data.toString());
-
         val databaseDriverFactory: DatabaseDriverFactory = DatabaseDriverFactory(this)
         var database = Database(databaseDriverFactory)
-//       database.clearDatabase()
-        val p1= Person("1","rohit","rohit@2811200gmail.com","8839425124","@rohit12","male")
-        val p2= Person("2","mohit","rohit@2811200gmail.com","8839425124","@rohit12","male")
-        val p3= Person("3","reen","rohit@2811200gmail.com","8839425124","@rohit12","male")
-        val p4= Person("4","heen","rohit@2811200gmail.com","8839425124","@rohit12","male")
-        val p5= Person("1","firjeenmarna","rohit@2811200gmail.com","8839425124","@rohit12","male")
+
+        val intent = intent
+        val data :String? = intent.getStringExtra("data")
+
+        if(data!=null) {
+            var personData: List<String> = data.split(",")
+//            database.clearDatabase()
+
+            var li1:List<Person>  = database.getAllPersons()
+            var max=1
+            for( p in li1){
+                max=Math.max(p.id.toInt(),max)
+            }
+            max+=1;
 
 
-        database.insertPerson(p1);
-        database.insertPerson(p2);
-        database.insertPerson(p3);
-        database.insertPerson(p4);
-        database.insertPerson(p5)
+                val p1 = Person(
+                    max.toString(),
+                    personData[1] ,
+                    personData[2] ,
+                    personData[3] ,
+                    personData[4] ,
+                    personData[5]
 
+                )
+
+        database.insertPerson(p1)
+
+        }
         var li:List<Person>  = database.getAllPersons()
 
-        //Recycle viewer
+//        Recycle viewer
         val recycle1 = findViewById<RecyclerView>(R.id.recycle1);
         recycle1.layoutManager = LinearLayoutManager(this)
         val arr = li

@@ -16,7 +16,10 @@ data class Person(
     @SerialName("password")
     val password: String,
     @SerialName("gender")
-    val gender: String
-){
+    val gender: String,
 
+){
+    override fun toString(): String {
+        return id+","+name+","+email+","+mobile+","+password+","+gender
+    }
 }

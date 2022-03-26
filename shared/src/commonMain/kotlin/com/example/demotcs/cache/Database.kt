@@ -35,6 +35,7 @@ class Database(databaseDriverFactory: DatabaseDriverFactory) {
         mobile : String,
         password : String,
         gender : String
+
     ):Person{
         return  Person(
             id = pID,
@@ -43,6 +44,7 @@ class Database(databaseDriverFactory: DatabaseDriverFactory) {
             mobile = mobile,
             password = password,
             gender = gender
+
         )
     }
 
